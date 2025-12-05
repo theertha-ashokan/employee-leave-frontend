@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { api } from '../services/api';
+import { useNavigate } from '@tanstack/react-router';
 
 export default function ApplyLeavePage() {
   const qc = useQueryClient();
+
   const [form, setForm] = useState({
     leaveType: 'casual',
     startDate: '',
@@ -12,15 +14,25 @@ export default function ApplyLeavePage() {
     halfDayType: 'morning',
     reason: ''
   });
+
+  const navigate = useNavigate();
   const [msg, setMsg] = useState<string | null>(null);
 
   const applyMutation = useMutation({
-    mutationFn: async () => (await api.post('/api/leaves/', form)).data,
+    mutationFn: async () => (await api.post('/leaves', form)).data,
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['myLeaves'] });
       setMsg('Leave applied successfully.');
+      
+      //  Success alert
+      alert("👋🏻 Leave applied successfully!");
+
+      navigate({ to: '/leaves' });
     },
-    onError: (e: any) => setMsg(e?.response?.data?.message || 'Error applying leave')
+    onError: (e: any) => {
+      setMsg(e?.response?.data?.message || 'Error applying leave');
+      alert("😒 Failed to apply leave");
+    }
   });
 
   return (
@@ -89,7 +101,7 @@ export default function ApplyLeavePage() {
                 onChange={(e) => setForm({ ...form, isHalfDay: e.target.checked })}
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               />
-              Half Day
+              Leave Mode
             </label>
             {form.isHalfDay && (
               <select
@@ -97,8 +109,9 @@ export default function ApplyLeavePage() {
                 value={form.halfDayType}
                 onChange={(e) => setForm({ ...form, halfDayType: e.target.value })}
               >
-                <option value="morning">Morning</option>
-                <option value="afternoon">Afternoon</option>
+                <option value="morning">FullDay</option>
+                <option value="afternoon">HalfDay</option>
+               
               </select>
             )}
           </div>

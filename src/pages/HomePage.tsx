@@ -12,7 +12,7 @@ export default function HomePage() {
         <div className="mt-8">
           {/* Anchor link to Apply Leave section */}
           <a
-            href="/apply"
+            href="/login"
             className="inline-block px-8 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-lg hover:bg-blue-700 transition transform hover:-translate-y-0.5"
           >
             Get Started
