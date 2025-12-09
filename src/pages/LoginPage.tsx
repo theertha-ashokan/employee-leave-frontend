@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { api } from "../services/api";
 import { useNavigate } from "@tanstack/react-router";
+import { FaUser, FaLock } from "react-icons/fa";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -21,75 +22,68 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-50 via-indigo-100 to-purple-100 flex items-center justify-center px-4">
-      <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 shadow-xl rounded-3xl overflow-hidden bg-white">
-        
-        {/* LEFT SIDE IMAGE */}
-        <div className="hidden md:flex items-center justify-center bg-gradient-to-br from-indigo-600 to-blue-500 p-10">
-          <img
-            src="https://www.4cornerresources.com/wp-content/uploads/2023/01/Manager-supporting-employees-scaled.jpeg"
-            alt="Employee Login"
-            className="w-250 h-76 drop-shadow-2xl object-cover"
-          />
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#0a1a33] via-[#0b203d] to-[#071628] px-4">
+
+      {/* CARD */}
+      <div className="relative w-full max-w-md bg-[#0d1f33]/40 backdrop-blur-2xl rounded-3xl 
+                      border border-blue-300/20 p-10 shadow-lg shadow-blue-500/40">
+
+        <div className="absolute inset-0 rounded-3xl border border-blue-400/30 pointer-events-none"></div>
+
+        {/* Logo */}
+        <div className="flex justify-center mb-6">
+          <div className="w-20 h-20 rounded-full border border-blue-300/50 flex items-center justify-center 
+                          bg-[#0d1f33]/40 backdrop-blur-xl shadow-md shadow-blue-500/40">
+            <FaUser className="text-blue-300 text-3xl" />
+          </div>
         </div>
 
-      {/* login form */}
-        <div className="p-10 bg-white/90 backdrop-blur-lg">
-          <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
-            Employee Login
-          </h2>
+        <h2 className="text-center text-2xl font-semibold text-blue-100 tracking-wide mb-6">
+          Employee Login
+        </h2>
 
-          {msg && (
-            <div className="text-red-600 mb-3 text-center font-medium">
-              {msg}
-            </div>
-          )}
+        {msg && <p className="text-red-400 text-center mb-3">{msg}</p>}
 
-          <form className="space-y-5" onSubmit={onSubmit}>
-            <div>
-              <label className="block text-gray-700 font-medium mb-1">
-                Email
-              </label>
-              <input
-                className="w-full border rounded-lg p-3 bg-gray-50 focus:ring-2 focus:ring-indigo-500 outline-none"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
+        <form onSubmit={onSubmit} className="space-y-6">
 
-            <div>
-              <label className="block text-gray-700 font-medium mb-1">
-                Password
-              </label>
-              <input
-                className="w-full border rounded-lg p-3 bg-gray-50 focus:ring-2 focus:ring-indigo-500 outline-none"
-                type="password"
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition-all shadow-md hover:shadow-xl"
-            >
-              Login
-            </button>
-            {/* <a
-            href="/apply"
-            className="inline-block px-8 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-lg hover:bg-blue-700 transition transform hover:-translate-y-0.5"
-          >
-            login
-          </a> */}
-          </form>
-
-          <div className="mt-4 text-sm text-center">
-            <a href="#" className="text-indigo-600 hover:underline">
-              Forgot password?
-            </a>
+          <div className="relative">
+            <FaUser className="absolute left-3 top-4 text-blue-300" />
+            <input
+              className="w-full bg-[#0d1f33]/40 border border-white/20 rounded-xl py-3 pl-10 pr-3 
+                         text-blue-100 placeholder-blue-300 focus:outline-none focus:ring-2 
+                         focus:ring-blue-400/50"
+              placeholder="Username"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
+
+          <div className="relative">
+            <FaLock className="absolute left-3 top-4 text-blue-300" />
+            <input
+              type="password"
+              className="w-full bg-[#0d1f33]/40 border border-white/20 rounded-xl py-3 pl-10 pr-3 
+                         text-blue-100 placeholder-blue-300 focus:outline-none focus:ring-2 
+                         focus:ring-blue-400/50"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold 
+                       rounded-xl shadow-lg shadow-blue-500/40 hover:shadow-blue-500/70 transition-all"
+          >
+            LOGIN
+          </button>
+        </form>
+
+        <div className="mt-4 text-center">
+          <a href="#" className="text-blue-300 hover:underline text-sm">
+            Forgot Password?
+          </a>
         </div>
       </div>
     </div>

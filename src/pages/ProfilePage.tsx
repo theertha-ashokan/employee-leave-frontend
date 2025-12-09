@@ -43,12 +43,13 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
 
       {/* Profile Card */}
-      <div className="bg-white p-6 rounded shadow">
-        <h2 className="text-xl font-semibold mb-4">My Profile</h2>
-        <div className="space-y-2 text-sm text-gray-700">
+      <div className="bg-white p-6 rounded shadow bg-gradient-to-b from-[#2a3b5a] via-[#3b4b70] to-[#1e2a45] px-4
+">
+        <h2 className="text-xl font-semibold mb-4 text-white">My Profile</h2>
+        <div className="space-y-2 text-sm text-white">
           <div><b>Name:</b> {data.name}</div>
           <div><b>Email:</b> {data.email}</div>
           <div><b>Designation:</b> {data.designation || '-'}</div>
@@ -58,10 +59,11 @@ export default function ProfilePage() {
       </div>
 
       {/* Update Profile */}
-      <div className="bg-white p-6 rounded shadow">
-        <h2 className="text-xl font-semibold mb-4">Update Profile</h2>
+      <div className="bg-white p-6 rounded shadow bg-gradient-to-b from-[#2a3b5a] via-[#3b4b70] to-[#1e2a45] px-4
+">
+        <h2 className="text-xl font-semibold mb-4 text-white">Update Profile</h2>
 
-        <div className="space-y-3">
+        <div className="space-y-3 text-white">
           {Object.entries(form).map(([key, value]) => (
             <input
               key={key}

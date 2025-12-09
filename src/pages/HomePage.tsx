@@ -1,61 +1,90 @@
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 px-6 py-12">
-      {/* Hero Section */}
-      <div className="max-w-6xl mx-auto text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-          Welcome to <span className="text-blue-600">Employee Leave Management</span>
-        </h1>
-        <p className="mt-4 text-gray-700 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-          Track leaves, manage profiles, and approve requests efficiently with a modern, user‑friendly dashboard.
-        </p>
-        <div className="mt-8">
-          {/* Anchor link to Apply Leave section */}
-          <a
-            href="/login"
-            className="inline-block px-8 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-lg hover:bg-blue-700 transition transform hover:-translate-y-0.5"
-          >
-            Get Started
-          </a>
-        </div>
-      </div>
-
-      {/* Feature Cards */}
-      <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
-        {/* Apply Leave */}
-        <div
-          id="apply-leave"
-          className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition transform hover:-translate-y-1"
-        >
-          <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mb-6 mx-auto text-3xl">
-            📅
+    <div className=" bg-gradient-to-b from-[#0a1a33] via-[#0b203d] to-[#071628] px-6 py-12">
+      <div className="min-h-screen bg-gradient-to-b from-[#0a1a33] via-[#0b203d] to-[#071628] px-6 py-12">
+  
+        {/* Hero Section */}
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+  
+          {/* Text Section */}
+          <div className="text-center md:text-left">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-blue-100 leading-tight drop-shadow-md">
+              Simplify Your{" "}
+              <span className="text-blue-400">Leave Management</span>
+            </h1>
+  
+            <p className="mt-5 text-blue-200 text-lg md:text-xl max-w-xl leading-relaxed">
+              Manage employee leaves effortlessly with a secure, modern, and responsive platform.
+            </p>
+  
+            <div className="mt-8">
+              <a
+                href="/login"
+                className="inline-block px-12 py-3 bg-gradient-to-r from-blue-600 to-blue-500 
+                           text-white font-semibold rounded-xl shadow-lg shadow-blue-500/40 
+                           hover:shadow-blue-500/70 transition-all transform hover:-translate-y-1"
+              >
+                Get Started
+              </a>
+            </div>
           </div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">Apply Leave</h3>
-          <p className="text-gray-600 text-sm leading-relaxed">
-            Submit leave requests with flexible options for half‑day or full‑day, all in one place.
-          </p>
-        </div>
-
-        {/* Manage Profile */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition transform hover:-translate-y-1">
-          <div className="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mb-6 mx-auto text-3xl">
-            👤
+  
+          {/* Hero Image */}
+          <div className="flex justify-center">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/020/310/248/original/business-team-ready-to-work-office-employee-in-tidy-clothes-illustration-characters-in-flat-design-group-of-office-workers-in-flat-cartoon-style-free-vector.jpg"
+              alt="Dashboard Illustration"
+              className="w-[420px] md:w-[500px] 
+                         drop-shadow-[0_0_25px_rgba(0,150,255,0.5)] rounded-2xl"
+            />
           </div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">Manage Profile</h3>
-          <p className="text-gray-600 text-sm leading-relaxed">
-            Update your designation, department, and view attendance summary with ease.
-          </p>
         </div>
-
-        {/* Admin Approval */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition transform hover:-translate-y-1">
-          <div className="flex items-center justify-center w-16 h-16 rounded-full bg-purple-100 text-purple-600 mb-6 mx-auto text-3xl">
-            ✅
+  
+        {/* Feature Cards */}
+        <div className="max-w-6xl mx-auto grid gap-10 md:grid-cols-3 mt-20">
+  
+          {/* Card 1 */}
+          <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-blue-300/20 
+                          shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-2 
+                          transition-all text-center">
+            <div className="w-16 h-16 flex items-center justify-center bg-blue-500/20 
+                            text-blue-300 rounded-full mx-auto text-3xl mb-6">
+              📅
+            </div>
+            <h3 className="text-xl font-semibold text-blue-100">Apply Leave</h3>
+            <p className="text-blue-300 text-sm mt-3">
+              Submit leave requests quickly with a clean interface.
+            </p>
           </div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">Admin Approval</h3>
-          <p className="text-gray-600 text-sm leading-relaxed">
-            Managers and admins can review, approve, or reject leave requests quickly and transparently.
-          </p>
+  
+          {/* Card 2 */}
+          <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-blue-300/20 
+                          shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-2 
+                          transition-all text-center">
+            <div className="w-16 h-16 flex items-center justify-center bg-green-500/20 
+                            text-green-300 rounded-full mx-auto text-3xl mb-6">
+              👤
+            </div>
+            <h3 className="text-xl font-semibold text-blue-100">Manage Profile</h3>
+            <p className="text-blue-300 text-sm mt-3">
+              Update your personal and departmental details easily.
+            </p>
+          </div>
+  
+          {/* Card 3 */}
+          <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-blue-300/20 
+                          shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-2 
+                          transition-all text-center">
+            <div className="w-16 h-16 flex items-center justify-center bg-purple-500/20 
+                            text-purple-300 rounded-full mx-auto text-3xl mb-6">
+              ✅
+            </div>
+            <h3 className="text-xl font-semibold text-blue-100">Admin Approval</h3>
+            <p className="text-blue-300 text-sm mt-3">
+              Managers can approve or reject leave requests instantly.
+            </p>
+          </div>
+  
         </div>
       </div>
     </div>
